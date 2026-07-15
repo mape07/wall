@@ -1,1 +1,1714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AguaPura Colombia | Recarga de Botellas y Botellones de Agua a Domicilio</title>
+<meta name="description" content="Recarga de botellas y botellones de agua con pedidos en línea y entrega a domicilio en Bogotá y diferentes ciudades de Colombia. Servicio rápido, confiable y con atención personalizada.">
+<meta name="theme-color" content="#032B44">
 
+<!-- ============================================================
+     ETIQUETAS OPEN GRAPH — edita la URL y la imagen cuando publiques
+     ============================================================ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AquaPura Colombia | Recarga de Botellas y Botellones de Agua a Domicilio">
+<meta property="og:description" content="Recarga tus botellas y botellones de agua y recibe tu pedido a domicilio en Bogotá y toda Colombia.">
+<!-- <meta property="og:url" content="https://tudominio.com"> -->
+<!-- <meta property="og:image" content="https://tudominio.com/og-image.jpg"> -->
+
+<!-- ============================================================
+     FUENTE: Plus Jakarta Sans — títulos y cuerpo, moderna y elegante
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   1. TOKENS DE DISEÑO — inspirados en el agua
+   ===================================================================== */
+:root{
+  --deep:        #032B44;   /* azul profundo */
+  --ocean:       #005C97;   /* azul océano */
+  --bright:      #00AEEF;   /* azul brillante */
+  --sky:         #6DD5FA;   /* azul celeste */
+  --turquoise:   #27D7D1;   /* turquesa */
+  --white:       #FFFFFF;
+  --bg-light:    #F3FBFF;   /* fondo claro */
+  --gray-line:   #DCEEF6;
+  --ink-dark:    #06253B;
+  --ink-soft:    #4E7186;
+
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --radius: 22px;
+  --radius-sm: 14px;
+  --shadow-soft: 0 20px 55px rgba(3,43,68,.10);
+  --shadow-deep: 0 30px 80px rgba(3,43,68,.35);
+  --shadow-glow: 0 20px 55px -14px rgba(0,174,239,.5);
+  --ease: cubic-bezier(.19,1,.22,1);
+
+  --topbar-h: 40px;
+  --header-h: 78px;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family: var(--font-body);
+  color: var(--ink-dark);
+  background: var(--bg-light);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+img, svg{ display:block; max-width:100%; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+h1,h2,h3,h4{ font-family: var(--font-display); color: var(--ink-dark); line-height:1.15; font-weight:800; letter-spacing:-0.02em; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline: 3px solid var(--bright);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.container{ width:100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--font-display);
+  font-size: 12.5px; font-weight:700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--bright);
+  margin-bottom: 14px;
+}
+.eyebrow::before{ content:""; width:8px; height:8px; border-radius:50%; background: var(--turquoise); box-shadow: 0 0 0 4px rgba(39,215,209,.2); }
+.on-dark .eyebrow{ color: var(--sky); }
+.on-dark .eyebrow::before{ background: var(--turquoise); box-shadow: 0 0 0 4px rgba(39,215,209,.28); }
+
+.section-title{ font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px; }
+.section-sub{ color: var(--ink-soft); font-size: 16.5px; max-width: 560px; margin-bottom: 44px; font-weight:500; }
+.on-dark .section-title{ color: var(--white); }
+.on-dark h3{ color: var(--white); }
+.on-dark .section-sub{ color: rgba(255,255,255,.7); }
+.section-head.center{ text-align:center; margin-left:auto; margin-right:auto; }
+.section-head.center .section-sub{ margin-left:auto; margin-right:auto; }
+
+section{ position:relative; padding: 108px 0; }
+
+/* Botones */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family: var(--font-display); font-weight:700; font-size:15px;
+  padding: 16px 28px; border-radius: 100px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  white-space: nowrap;
+}
+.btn-primary{
+  background: linear-gradient(135deg, var(--bright), var(--ocean));
+  color: var(--white);
+  box-shadow: var(--shadow-glow);
+}
+.btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 26px 65px -14px rgba(0,174,239,.65); }
+.btn-secondary{
+  background: linear-gradient(135deg, var(--turquoise), #1CB8B3);
+  color: var(--white);
+  box-shadow: 0 20px 50px -14px rgba(39,215,209,.55);
+}
+.btn-secondary:hover{ transform: translateY(-3px); }
+.btn-ghost{ background: rgba(255,255,255,.12); color: var(--white); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(6px); }
+.btn-ghost:hover{ background: rgba(255,255,255,.2); transform: translateY(-3px); }
+.btn-light{ background: var(--white); color: var(--deep); }
+.btn-light:hover{ transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+.btn-outline{ background: transparent; color: var(--ocean); border: 1.5px solid var(--gray-line); }
+.btn-outline:hover{ border-color: var(--bright); color: var(--bright); }
+.btn-sm{ padding:12px 22px; font-size:13.5px; }
+.btn-block{ width:100%; }
+
+/* Glass card genérico */
+.glass{
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.5);
+}
+
+/* =====================================================================
+   2. BARRA SUPERIOR INFORMATIVA
+   ===================================================================== */
+.topbar{
+  position: fixed; top:0; left:0; right:0; z-index: 1001;
+  height: var(--topbar-h);
+  background: var(--deep);
+  color: rgba(255,255,255,.85);
+  font-size: 12.5px;
+  display:flex; align-items:center;
+}
+.topbar .container{ display:flex; align-items:center; justify-content:space-between; gap: 16px; }
+.topbar-msg{ display:flex; align-items:center; gap:8px; font-weight:600; }
+.topbar-msg .live-dot{ width:7px; height:7px; border-radius:50%; background: var(--turquoise); box-shadow: 0 0 0 3px rgba(39,215,209,.3); animation: livePulse 2s ease-in-out infinite; flex-shrink:0; }
+@keyframes livePulse{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+.topbar-info{ display:flex; align-items:center; gap: 18px; }
+.topbar-info span{ display:flex; align-items:center; gap:6px; white-space:nowrap; }
+.topbar-info svg{ width:13px; height:13px; flex-shrink:0; }
+
+/* =====================================================================
+   3. BARRA DE PROGRESO DE SCROLL
+   ===================================================================== */
+.scroll-progress{
+  position: fixed; top: var(--topbar-h); left:0; right:0; height: 3px; z-index: 1002;
+  background: transparent;
+}
+.scroll-progress-bar{
+  height:100%; width:0%;
+  background: linear-gradient(90deg, var(--turquoise), var(--bright));
+  transition: width .1s linear;
+}
+
+/* =====================================================================
+   4. HEADER (glassmorphism)
+   ===================================================================== */
+header{
+  position: fixed; top: var(--topbar-h); left:0; right:0; z-index: 999;
+  padding: 14px 0; transition: all .4s var(--ease);
+}
+header .container{
+  display:flex; align-items:center; justify-content:space-between;
+  background: rgba(255,255,255,.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 100px;
+  padding: 8px 10px 8px 22px;
+  box-shadow: 0 10px 34px rgba(3,43,68,.08);
+  max-width: 1240px;
+  transition: all .4s var(--ease);
+}
+header.scrolled .container{ box-shadow: 0 16px 44px rgba(3,43,68,.16); background: rgba(255,255,255,.75); }
+
+.logo{ display:flex; align-items:center; gap:10px; font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--deep); }
+.logo-mark{
+  width: 36px; height: 36px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--sky), var(--ocean));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 8px 18px -4px rgba(0,92,151,.55);
+}
+.logo-mark svg{ width:19px; height:19px; }
+
+nav ul{ display:flex; align-items:center; gap: 2px; }
+nav a{ font-size: 14px; font-weight: 600; color: var(--ink-soft); padding: 10px 14px; border-radius: 100px; transition: all .3s var(--ease); }
+nav a:hover{ color: var(--deep); background: rgba(0,174,239,.1); }
+
+.header-actions{ display:flex; align-items:center; gap:10px; }
+
+.menu-toggle{ display:none; width: 42px; height:42px; border-radius:50%; align-items:center; justify-content:center; background: rgba(0,174,239,.12); }
+.menu-toggle span{ display:block; width:18px; height:2px; background: var(--deep); position:relative; transition: all .3s ease; }
+.menu-toggle span::before, .menu-toggle span::after{ content:""; position:absolute; left:0; width:18px; height:2px; background: var(--deep); transition: all .3s ease; }
+.menu-toggle span::before{ top:-6px; }
+.menu-toggle span::after{ top:6px; }
+.menu-toggle.active span{ background: transparent; }
+.menu-toggle.active span::before{ transform: rotate(45deg); top:0; }
+.menu-toggle.active span::after{ transform: rotate(-45deg); top:0; }
+
+/* =====================================================================
+   5. HERO — fondo 3D de gotas + parallax
+   ===================================================================== */
+.hero{
+  position:relative;
+  padding: calc(var(--topbar-h) + var(--header-h) + 90px) 0 100px;
+  background: linear-gradient(180deg, var(--deep) 0%, var(--ocean) 100%);
+  overflow:hidden;
+}
+#water-canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+.hero-glow{
+  position:absolute; top:-10%; right:-10%; width:60%; height:70%;
+  background: radial-gradient(circle, rgba(109,213,250,.25), transparent 65%);
+  z-index:0; pointer-events:none;
+}
+
+.hero .container{ position:relative; z-index:2; display:grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items:center; }
+.hero-text h1{
+  font-size: clamp(34px, 5.2vw, 60px);
+  color: var(--white);
+  margin-bottom: 20px;
+  text-shadow: 0 10px 40px rgba(0,0,0,.2);
+}
+.hero-text h1 .highlight{
+  background: linear-gradient(100deg, var(--turquoise), var(--sky));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-text p{ font-size: 18px; color: rgba(255,255,255,.75); max-width: 500px; margin-bottom: 32px; font-weight:500; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap: 12px; margin-bottom: 40px; }
+
+.hero-trust{ display:flex; gap: 22px; flex-wrap:wrap; }
+.hero-trust-item{ display:flex; align-items:center; gap:9px; }
+.hero-trust-item .ic{ width:32px; height:32px; border-radius:9px; background: rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.hero-trust-item .ic svg{ width:15px; height:15px; stroke: var(--turquoise); }
+.hero-trust-item span{ font-size: 13px; color: rgba(255,255,255,.8); font-weight:600; }
+
+/* --- Botellón de agua 3D: elemento visual firma --- */
+.hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; min-height: 460px; }
+.bottle-glow{
+  position:absolute; width: 340px; height: 340px; border-radius:50%;
+  background: radial-gradient(circle, rgba(39,215,209,.3), transparent 70%);
+  filter: blur(14px);
+  animation: bottleGlow 4s ease-in-out infinite;
+}
+@keyframes bottleGlow{ 0%,100%{ transform: scale(1); opacity:.7; } 50%{ transform: scale(1.1); opacity:1; } }
+.bottle-wrap{ position:relative; z-index:2; animation: floatBottle 6s ease-in-out infinite; }
+@keyframes floatBottle{ 0%,100%{ transform: translateY(0px); } 50%{ transform: translateY(-16px); } }
+
+.droplet{
+  position:absolute; border-radius: 50% 50% 50% 0; transform: rotate(45deg);
+  background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(109,213,250,.5));
+}
+.droplet.d1{ width:10px; height:10px; left:20%; top:12%; animation: dropFall 3.4s ease-in infinite; }
+.droplet.d2{ width:7px; height:7px; right:16%; top:26%; animation: dropFall 2.8s ease-in infinite .8s; }
+.droplet.d3{ width:8px; height:8px; left:30%; top:40%; animation: dropFall 3.1s ease-in infinite 1.6s; }
+@keyframes dropFall{ 0%{ transform: translateY(0) rotate(45deg); opacity:0; } 15%{ opacity:1; } 100%{ transform: translateY(60px) rotate(45deg); opacity:0; } }
+
+/* =====================================================================
+   6. FORMULARIO RÁPIDO DE RECARGA
+   ===================================================================== */
+.order{ background: var(--white); }
+.order-wrap{
+  background: linear-gradient(160deg, var(--bg-light), #E7F6FE);
+  border: 1px solid var(--gray-line);
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: var(--shadow-soft);
+  position:relative;
+  overflow:hidden;
+}
+.order-wrap::before{
+  content:""; position:absolute; top:-20%; right:-10%; width:50%; height:80%;
+  background: radial-gradient(circle, rgba(0,174,239,.12), transparent 70%);
+}
+.order-grid{ position:relative; z-index:1; display:grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field.full{ grid-column: 1 / -1; }
+.field label{ font-size:13px; font-weight:700; color: var(--deep); }
+.field .req{ color: var(--bright); }
+.field input, .field select, .field textarea{
+  font-family: var(--font-body); font-size:14.5px; padding: 14px 16px; border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gray-line); background: var(--white); color: var(--ink-dark);
+  transition: border-color .3s, box-shadow .3s;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color: var(--bright); box-shadow: 0 0 0 4px rgba(0,174,239,.12); }
+.field textarea{ resize: vertical; min-height: 90px; }
+.field.error input, .field.error select, .field.error textarea{ border-color: #E0453C; }
+.field-error-msg{ font-size:12.5px; color:#E0453C; font-weight:600; display:none; }
+.field.error .field-error-msg{ display:block; }
+
+.order-submit-row{ position:relative; z-index:1; display:flex; align-items:center; gap: 20px; flex-wrap:wrap; margin-top: 28px; }
+.order-note{ font-size: 13px; color: var(--ink-soft); max-width: 360px; }
+.order-confirm{
+  display:none; align-items:center; gap:10px;
+  background: rgba(39,215,209,.14); color: #0B6E68;
+  padding: 14px 18px; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight:600; margin-top: 18px;
+  position:relative; z-index:1;
+}
+.order-confirm.show{ display:flex; }
+.order-confirm svg{ width:18px; height:18px; stroke:#0B6E68; flex-shrink:0; }
+
+/* =====================================================================
+   7. SERVICIOS
+   ===================================================================== */
+.services{ background: var(--bg-light); }
+.services-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.service-card{
+  background: var(--white); border: 1px solid var(--gray-line); border-radius: var(--radius);
+  padding: 30px 26px; display:flex; flex-direction:column;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  opacity:0; transform: translateY(24px) perspective(800px) rotateX(0deg);
+}
+.service-card.in-view{ opacity:1; transform:none; }
+.service-card:hover{ transform: translateY(-10px) perspective(800px) rotateX(2deg); box-shadow: var(--shadow-deep); border-color: rgba(0,174,239,.35); }
+.service-icon{
+  width: 52px; height:52px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0,174,239,.14), rgba(39,215,209,.14));
+  display:flex; align-items:center; justify-content:center; margin-bottom: 20px;
+}
+.service-icon svg{ width:24px; height:24px; stroke: var(--ocean); }
+.service-card h3{ font-size:18px; margin-bottom:8px; }
+.service-card p{ color: var(--ink-soft); font-size: 14px; margin-bottom: 10px; }
+.service-benefit{ display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color: #0B8E86; margin-bottom: 20px; }
+.service-benefit svg{ width:14px; height:14px; stroke:#0B8E86; flex-shrink:0; }
+.service-card .btn{ margin-top:auto; }
+
+/* =====================================================================
+   8. CÓMO FUNCIONA
+   ===================================================================== */
+.how{ background: var(--white); }
+.how-steps{ position:relative; display:grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.how-wave{ position:absolute; top: 34px; left:0; right:0; z-index:0; }
+.how-wave path{ stroke: var(--turquoise); stroke-width:2; fill:none; stroke-dasharray: 8 10; animation: dashFlow 2.4s linear infinite; opacity:.6; }
+@keyframes dashFlow{ to{ stroke-dashoffset: -36; } }
+.how-step{ position:relative; z-index:1; text-align:center; opacity:0; transform: translateY(20px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.how-step.in-view{ opacity:1; transform:none; }
+.how-step-num{
+  width: 68px; height:68px; margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bright), var(--ocean));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow-glow);
+}
+.how-step-num svg{ width:28px; height:28px; stroke:white; }
+.how-step h3{ font-size:17px; margin-bottom:8px; }
+.how-step p{ color: var(--ink-soft); font-size:14px; max-width: 220px; margin: 0 auto; }
+
+/* =====================================================================
+   9. BENEFICIOS
+   ===================================================================== */
+.benefits{ background: linear-gradient(160deg, var(--deep), var(--ocean)); position:relative; overflow:hidden; }
+.benefits::before{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(60% 50% at 90% 10%, rgba(39,215,209,.18), transparent 60%), radial-gradient(50% 50% at 0% 100%, rgba(109,213,250,.14), transparent 60%);
+}
+.benefits-grid{ position:relative; z-index:1; display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.benefit-item{
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-sm);
+  padding: 26px 22px; opacity:0; transform: translateY(20px); transition: opacity .4s, transform .4s;
+}
+.benefit-item.in-view{ opacity:1; transform:none; }
+.benefit-item .ic{ width:40px; height:40px; border-radius:10px; background: rgba(39,215,209,.16); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+.benefit-item .ic svg{ width:19px; height:19px; stroke: var(--turquoise); }
+.benefit-item h3{ color: var(--white); font-size:15.5px; margin-bottom:6px; }
+.benefit-item p{ color: rgba(255,255,255,.6); font-size:13px; }
+
+/* =====================================================================
+   10. DOMICILIOS / COBERTURA
+   ===================================================================== */
+.coverage{ background: var(--bg-light); }
+.coverage-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items:start; }
+.coverage-list{ background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-line); padding: 36px; box-shadow: var(--shadow-soft); margin-bottom: 24px; }
+.coverage-row{ display:flex; align-items:flex-start; gap:14px; padding: 14px 0; border-bottom: 1px solid var(--gray-line); }
+.coverage-row:last-of-type{ border-bottom:none; }
+.coverage-row .dot{ width: 34px; height:34px; flex-shrink:0; border-radius:9px; background: linear-gradient(135deg, rgba(0,174,239,.14), rgba(39,215,209,.14)); display:flex; align-items:center; justify-content:center; }
+.coverage-row .dot svg{ width:16px; height:16px; stroke: var(--ocean); }
+.coverage-row h4{ font-size:14.5px; color:var(--ink-dark); margin-bottom:2px; font-family: var(--font-display); font-weight:700; }
+.coverage-row p{ font-size:13.5px; color: var(--ink-soft); }
+
+.coverage-check{
+  background: linear-gradient(160deg, var(--deep), var(--ocean));
+  border-radius: var(--radius);
+  padding: 34px;
+  color: var(--white);
+}
+.coverage-check h3{ color: var(--white); font-size:19px; margin-bottom:8px; }
+.coverage-check p{ color: rgba(255,255,255,.65); font-size:13.5px; margin-bottom:20px; }
+.coverage-check-form{ display:flex; gap:10px; flex-wrap:wrap; }
+.coverage-check-form input{
+  flex:1; min-width:160px; padding: 13px 16px; border-radius: 100px; border:1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.1); color: var(--white); font-size:14px;
+}
+.coverage-check-form input::placeholder{ color: rgba(255,255,255,.5); }
+.coverage-check-form input:focus{ outline:none; border-color: var(--turquoise); }
+.coverage-result{
+  display:none; align-items:flex-start; gap:10px;
+  margin-top: 18px; padding: 14px 16px; border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.1); font-size: 13.5px; color: rgba(255,255,255,.9);
+}
+.coverage-result.show{ display:flex; }
+.coverage-result svg{ width:17px; height:17px; stroke: var(--turquoise); flex-shrink:0; margin-top:2px; }
+
+/* =====================================================================
+   11. PLANES
+   ===================================================================== */
+.plans{ background: var(--white); }
+.plans-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+.plan-card{
+  background: var(--bg-light); border: 1px solid var(--gray-line); border-radius: var(--radius);
+  padding: 34px 28px; display:flex; flex-direction:column;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  opacity:0; transform: translateY(24px);
+}
+.plan-card.in-view{ opacity:1; transform:none; }
+.plan-card:hover{ transform: translateY(-8px); box-shadow: var(--shadow-soft); }
+.plan-card.featured{ background: linear-gradient(160deg, var(--deep), var(--ocean)); border-color: transparent; }
+.plan-card.featured *{ color: var(--white); }
+.plan-card.featured .plan-price{ color: var(--turquoise); }
+.plan-badge{ align-self:flex-start; background: rgba(0,174,239,.14); color: var(--ocean); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding: 6px 12px; border-radius:100px; margin-bottom:16px; }
+.plan-card.featured .plan-badge{ background: rgba(39,215,209,.2); color: var(--turquoise); }
+.plan-card h3{ font-size:20px; margin-bottom: 6px; }
+.plan-price{ font-family: var(--font-display); font-size: 26px; font-weight:800; color: var(--deep); margin-bottom: 4px; }
+.plan-freq{ font-size:13px; color: var(--ink-soft); margin-bottom:22px; }
+.plan-card.featured .plan-freq{ color: rgba(255,255,255,.65); }
+.plan-features{ margin-bottom: 26px; flex:1; }
+.plan-features li{ display:flex; align-items:flex-start; gap:9px; font-size:13.5px; padding: 7px 0; color: var(--ink-soft); }
+.plan-card.featured .plan-features li{ color: rgba(255,255,255,.8); }
+.plan-features li svg{ width:15px; height:15px; stroke: var(--turquoise); flex-shrink:0; margin-top:2px; }
+
+/* =====================================================================
+   12. TESTIMONIOS
+   ===================================================================== */
+.testimonials{ background: var(--bg-light); }
+.testimonials-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.testimonial-card{
+  background: var(--white); border: 1px solid var(--gray-line); border-radius: var(--radius);
+  padding: 30px 26px;
+  opacity:0; transform: translateY(24px); transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.testimonial-card.in-view{ opacity:1; transform:none; }
+.testimonial-quote-mark{ font-family: var(--font-display); font-size: 42px; color: var(--sky); line-height:1; margin-bottom:6px; }
+.testimonial-card p.quote{ color: var(--ink-soft); font-size: 14.5px; font-style: italic; margin-bottom: 20px; }
+.testimonial-person{ display:flex; align-items:center; gap:12px; }
+.testimonial-avatar{ width:42px; height:42px; border-radius:50%; background: linear-gradient(135deg, var(--sky), var(--ocean)); display:flex; align-items:center; justify-content:center; color:white; font-family: var(--font-display); font-weight:700; }
+.testimonial-person strong{ display:block; font-size:14px; color: var(--ink-dark); }
+.testimonial-person span{ font-size:12.5px; color: var(--ink-soft); }
+
+/* =====================================================================
+   13. FAQ
+   ===================================================================== */
+.faq{ background: var(--white); }
+.faq-list{ max-width: 780px; margin: 0 auto; }
+.faq-item{ border-bottom: 1px solid var(--gray-line); }
+.faq-question{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap: 20px;
+  padding: 22px 4px; text-align:left; font-family: var(--font-display); font-size: 16.5px; font-weight:700; color: var(--ink-dark);
+}
+.faq-question .plus{
+  flex-shrink:0; width: 30px; height:30px; border-radius:50%; background: var(--bg-light);
+  display:flex; align-items:center; justify-content:center; position:relative;
+  transition: transform .35s var(--ease), background .35s;
+}
+.faq-question .plus::before, .faq-question .plus::after{ content:""; position:absolute; background: var(--ocean); }
+.faq-question .plus::before{ width:12px; height:2px; }
+.faq-question .plus::after{ width:2px; height:12px; }
+.faq-item.active .faq-question .plus{ transform: rotate(135deg); background: var(--bright); }
+.faq-item.active .faq-question .plus::before, .faq-item.active .faq-question .plus::after{ background: var(--white); }
+.faq-answer{ max-height:0; overflow:hidden; transition: max-height .45s var(--ease); }
+.faq-answer p{ padding: 0 4px 24px; color: var(--ink-soft); font-size: 14.5px; max-width: 640px; }
+
+/* =====================================================================
+   14. AYUDA Y CONTACTO
+   ===================================================================== */
+.contact{ background: var(--bg-light); }
+.contact-wrap{ display:grid; grid-template-columns: .9fr 1.1fr; gap: 50px; align-items:start; }
+.contact-info-card{
+  background: linear-gradient(160deg, var(--deep), var(--ocean)); border-radius: var(--radius);
+  padding: 42px 34px; color: var(--white); position:relative; overflow:hidden;
+}
+.contact-info-card::before{ content:""; position:absolute; inset:0; background: radial-gradient(70% 60% at 100% 0%, rgba(39,215,209,.22), transparent 60%); }
+.contact-info-card *{ position:relative; z-index:1; }
+.contact-info-card h3{ color:var(--white); font-size:21px; margin-bottom:12px; }
+.contact-info-card p{ color: rgba(255,255,255,.65); font-size:14px; margin-bottom:26px; }
+.contact-line{ display:flex; align-items:center; gap:14px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.contact-line:first-of-type{ border-top:none; }
+.contact-line .ic{ width:38px; height:38px; border-radius:9px; background: rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-line .ic svg{ width:17px; height:17px; stroke: var(--turquoise); }
+.contact-line strong{ display:block; font-size:14px; }
+.contact-line span{ font-size:12px; color: rgba(255,255,255,.55); }
+
+.form-card{ background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-line); padding: 38px; box-shadow: var(--shadow-soft); }
+.form-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* =====================================================================
+   15. FOOTER
+   ===================================================================== */
+footer{ background: var(--deep); color: rgba(255,255,255,.65); padding: 64px 0 26px; }
+.footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.footer-brand .logo{ color: var(--white); margin-bottom:14px; }
+.footer-brand p{ font-size:13.5px; max-width:270px; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+.footer-tagline{ font-size:12.5px; color: rgba(255,255,255,.4); font-style:italic; }
+footer h4{ color: var(--white); font-size: 13.5px; margin-bottom: 16px; font-family: var(--font-display); font-weight:700; }
+footer ul li{ margin-bottom: 10px; font-size: 13.5px; color: rgba(255,255,255,.5); }
+footer ul li a:hover{ color: var(--turquoise); }
+.footer-bottom{ padding-top: 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size: 12.5px; color: rgba(255,255,255,.35); }
+
+/* =====================================================================
+   16. BOTÓN FLOTANTE WHATSAPP + VOLVER ARRIBA
+   ===================================================================== */
+.float-stack{ position: fixed; right: 24px; bottom: 24px; z-index: 1000; display:flex; flex-direction:column; align-items:flex-end; gap: 12px; }
+.wa-float{
+  display:flex; align-items:center; gap: 10px;
+  background: linear-gradient(135deg, var(--turquoise), #17B4AE);
+  color: var(--white); padding: 15px 22px 15px 16px; border-radius: 100px;
+  box-shadow: 0 16px 40px -8px rgba(39,215,209,.6);
+  font-family: var(--font-display); font-weight: 700; font-size: 14px;
+  animation: waFloat 3s ease-in-out infinite;
+}
+.wa-float svg{ width:22px; height:22px; }
+@keyframes waFloat{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-6px); } }
+
+.back-to-top{
+  width: 46px; height:46px; border-radius:50%;
+  background: var(--white); color: var(--deep);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow-soft);
+  opacity:0; transform: translateY(10px) scale(.8); pointer-events:none;
+  transition: all .35s var(--ease);
+}
+.back-to-top.show{ opacity:1; transform:none; pointer-events:all; }
+.back-to-top svg{ width:18px; height:18px; }
+
+.reveal{ opacity:0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in-view{ opacity:1; transform:none; }
+
+/* =====================================================================
+   17. RESPONSIVE
+   ===================================================================== */
+@media (max-width: 980px){
+  .hero .container{ grid-template-columns: 1fr; }
+  .hero-visual{ order:-1; min-height: 320px; }
+  .services-grid{ grid-template-columns: repeat(2,1fr); }
+  .benefits-grid{ grid-template-columns: repeat(2,1fr); }
+  .how-steps{ grid-template-columns: repeat(2,1fr); row-gap:50px; }
+  .how-wave{ display:none; }
+  .coverage-wrap{ grid-template-columns: 1fr; }
+  .plans-grid{ grid-template-columns: 1fr; max-width:440px; margin:0 auto; }
+  .testimonials-grid{ grid-template-columns: 1fr; max-width:440px; margin:0 auto; }
+  .contact-wrap{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+  .order-grid{ grid-template-columns: 1fr; }
+  .topbar-info span:not(:first-child){ display:none; }
+}
+@media (max-width: 720px){
+  nav{
+    position:fixed; top: calc(var(--topbar-h) + 72px); left:16px; right:16px;
+    background: rgba(255,255,255,.92); backdrop-filter: blur(20px);
+    border-radius: 20px; box-shadow: var(--shadow-deep); padding: 14px;
+    transform: translateY(-14px) scale(.98); opacity:0; pointer-events:none;
+    transition: all .35s var(--ease);
+  }
+  nav.open{ transform:none; opacity:1; pointer-events:all; }
+  nav ul{ flex-direction:column; align-items:stretch; gap:4px; }
+  nav a{ padding: 14px 16px; }
+  .menu-toggle{ display:flex; }
+  .header-actions .btn-primary.header-cta{ display:none; }
+  section{ padding: 76px 0; }
+  .services-grid{ grid-template-columns: 1fr; }
+  .benefits-grid{ grid-template-columns: 1fr; }
+  .how-steps{ grid-template-columns: 1fr; }
+  .form-grid{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 26px; }
+  .wa-float span.wa-text{ display:none; }
+  .wa-float{ padding: 15px; }
+  .order-wrap{ padding: 28px 20px; }
+  .topbar-info{ display:none; }
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior:auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     BARRA SUPERIOR INFORMATIVA
+     ===================================================================== -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-msg"><span class="live-dot"></span> Recargas y domicilios de agua disponibles en toda Colombia</div>
+    <div class="topbar-info">
+      <!-- ============ EDITA AQUÍ EL NÚMERO DE TELÉFONO Y HORARIO ============ -->
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg> +57 3150978792</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6z"/></svg> Lun - Sáb · 7:00 a.m. - 7:00 p.m. (editar horario)</span>
+    </div>
+  </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar" id="scroll-progress-bar"></div></div>
+
+<!-- =====================================================================
+     HEADER
+     ===================================================================== -->
+<header id="site-header">
+  <div class="container">
+    <a href="#inicio" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 8 5 11.5 5 15a7 7 0 0 0 14 0c0-3.5-3-7-7-13z"/></svg>
+      </span>
+      AguaPura Colombia
+    </a>
+
+    <nav id="main-nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#cobertura">Cobertura</a></li>
+        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#recarga" class="btn btn-primary btn-sm header-cta">Recargar ahora</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- =====================================================================
+     HERO
+     ===================================================================== -->
+<section class="hero" id="inicio">
+  <canvas id="water-canvas"></canvas>
+  <div class="hero-glow"></div>
+
+  <div class="container">
+    <div class="hero-text">
+      <span class="eyebrow" style="color:var(--sky);">Bogotá · Cobertura en Colombia</span>
+      <h1>Agua pura <span class="highlight">cuando la necesitas</span></h1>
+      <p>Recarga tus botellas y recibe agua a domicilio con un servicio rápido, confiable y disponible en toda Colombia.</p>
+      <div class="hero-cta">
+        <a href="#recarga" class="btn btn-primary">Recargar ahora</a>
+        <a href="#cobertura" class="btn btn-secondary">Pedir a domicilio</a>
+        <a href="#" class="btn btn-ghost wa-link" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 10h8M8 14h5"/></svg></span><span>Pedidos en línea</span></div>
+        <div class="hero-trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 12l2-7h11l3 7"/><rect x="3" y="12" width="16" height="6" rx="1.5"/><circle cx="7.5" cy="20" r="1.6"/><circle cx="16.5" cy="20" r="1.6"/></svg></span><span>Entregas rápidas</span></div>
+        <div class="hero-trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></span><span>Atención personalizada</span></div>
+        <div class="hero-trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M2.5 12h19M12 2.5c2.5 2.7 4 6 4 9.5s-1.5 6.8-4 9.5c-2.5-2.7-4-6-4-9.5S9.5 5.2 12 2.5z"/></svg></span><span>Cobertura nacional</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="bottle-glow"></div>
+      <span class="droplet d1"></span>
+      <span class="droplet d2"></span>
+      <span class="droplet d3"></span>
+
+      <div class="bottle-wrap">
+        <!-- Botellón de agua, elemento visual firma -->
+        <svg width="240" height="380" viewBox="0 0 240 380" fill="none">
+          <defs>
+            <linearGradient id="bottleBody" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#EAF8FF" stop-opacity="0.9"/>
+              <stop offset="45%" stop-color="#6DD5FA" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#005C97" stop-opacity="0.75"/>
+            </linearGradient>
+            <linearGradient id="waterFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#27D7D1"/>
+              <stop offset="100%" stop-color="#005C97"/>
+            </linearGradient>
+            <clipPath id="bottleClip">
+              <path d="M45 100 Q40 90 55 80 L70 55 Q75 45 90 45 L150 45 Q165 45 170 55 L185 80 Q200 90 195 100 Q205 140 205 220 Q205 330 120 330 Q35 330 35 220 Q35 140 45 100 Z"/>
+            </clipPath>
+          </defs>
+
+          <!-- Cuerpo del botellón -->
+          <path d="M45 100 Q40 90 55 80 L70 55 Q75 45 90 45 L150 45 Q165 45 170 55 L185 80 Q200 90 195 100 Q205 140 205 220 Q205 330 120 330 Q35 330 35 220 Q35 140 45 100 Z"
+                fill="url(#bottleBody)" stroke="rgba(255,255,255,.5)" stroke-width="2"/>
+
+          <!-- Nivel de agua interior -->
+          <g clip-path="url(#bottleClip)">
+            <rect x="30" y="190" width="180" height="160" fill="url(#waterFill)" opacity="0.55"/>
+            <path id="water-wave-path" d="M30 190 Q60 180 90 190 T150 190 T210 190 V350 H30 Z" fill="url(#waterFill)" opacity="0.4">
+              <animate attributeName="d"
+                values="M30 190 Q60 180 90 190 T150 190 T210 190 V350 H30 Z;
+                        M30 194 Q60 204 90 194 T150 194 T210 194 V350 H30 Z;
+                        M30 190 Q60 180 90 190 T150 190 T210 190 V350 H30 Z"
+                dur="4s" repeatCount="indefinite"/>
+            </path>
+          </g>
+
+          <!-- Tapa -->
+          <rect x="86" y="30" width="68" height="20" rx="7" fill="#27D7D1"/>
+          <rect x="94" y="16" width="52" height="18" rx="6" fill="#1CB8B3"/>
+
+          <!-- Brillo / reflejo -->
+          <ellipse cx="72" cy="150" rx="12" ry="90" fill="white" fill-opacity="0.35"/>
+          <ellipse cx="160" cy="110" rx="7" ry="30" fill="white" fill-opacity="0.25"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FORMULARIO RÁPIDO DE RECARGA
+     ===================================================================== -->
+<section class="order" id="recarga">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Pide en línea</span>
+      <h2 class="section-title">Recarga rápida y en línea</h2>
+      <p class="section-sub">Completa el formulario y confirma tu pedido directamente por WhatsApp, sin llamadas ni filas.</p>
+    </div>
+
+    <form class="order-wrap" id="order-form" novalidate>
+      <div class="order-grid">
+        <div class="field" data-field="nombre">
+          <label for="o-nombre">Nombre completo <span class="req">*</span></label>
+          <input type="text" id="o-nombre" name="nombre" placeholder="Tu nombre" autocomplete="name">
+          <span class="field-error-msg">Por favor ingresa tu nombre.</span>
+        </div>
+        <div class="field" data-field="celular">
+          <label for="o-celular">Número de celular <span class="req">*</span></label>
+          <input type="tel" id="o-celular" name="celular" placeholder="300 000 0000" autocomplete="tel">
+          <span class="field-error-msg">Ingresa un número de celular válido.</span>
+        </div>
+        <div class="field" data-field="ciudad">
+          <label for="o-ciudad">Ciudad <span class="req">*</span></label>
+          <input type="text" id="o-ciudad" name="ciudad" placeholder="Bogotá, Medellín, etc." autocomplete="address-level2">
+          <span class="field-error-msg">Cuéntanos en qué ciudad estás.</span>
+        </div>
+        <div class="field" data-field="direccion">
+          <label for="o-direccion">Dirección de entrega <span class="req">*</span></label>
+          <input type="text" id="o-direccion" name="direccion" placeholder="Calle, número, barrio" autocomplete="street-address">
+          <span class="field-error-msg">Ingresa la dirección de entrega.</span>
+        </div>
+        <div class="field" data-field="recipiente">
+          <label for="o-recipiente">Tipo de recipiente <span class="req">*</span></label>
+          <select id="o-recipiente" name="recipiente">
+            <option value="">Selecciona una opción</option>
+            <option value="Botella personal">Botella personal</option>
+            <option value="Botellón pequeño">Botellón pequeño</option>
+            <option value="Botellón grande">Botellón grande</option>
+            <option value="Varias unidades">Varias unidades</option>
+            <option value="Servicio empresarial">Servicio empresarial</option>
+          </select>
+          <span class="field-error-msg">Selecciona el tipo de recipiente.</span>
+        </div>
+        <div class="field" data-field="cantidad">
+          <label for="o-cantidad">Cantidad <span class="req">*</span></label>
+          <input type="number" id="o-cantidad" name="cantidad" placeholder="Ej: 2" min="1">
+          <span class="field-error-msg">Indica cuántas unidades necesitas.</span>
+        </div>
+        <div class="field full" data-field="servicio">
+          <label for="o-servicio">Tipo de servicio <span class="req">*</span></label>
+          <select id="o-servicio" name="servicio">
+            <option value="">Selecciona una opción</option>
+            <option value="Solo recarga">Solo recarga</option>
+            <option value="Recarga con domicilio">Recarga con domicilio</option>
+            <option value="Compra de botella o botellón">Compra de botella o botellón</option>
+            <option value="Plan recurrente">Plan recurrente</option>
+            <option value="Pedido empresarial">Pedido empresarial</option>
+          </select>
+          <span class="field-error-msg">Selecciona el tipo de servicio.</span>
+        </div>
+        <div class="field full">
+          <label for="o-comentarios">Comentarios adicionales</label>
+          <textarea id="o-comentarios" name="comentarios" placeholder="Referencias de la dirección, horario preferido, etc. (opcional)"></textarea>
+        </div>
+      </div>
+
+      <div class="order-submit-row">
+        <button type="submit" class="btn btn-primary">Solicitar recarga en línea</button>
+        <p class="order-note">Al enviar, prepararemos tu solicitud y te llevaremos a WhatsApp para confirmarla con un asesor.</p>
+      </div>
+
+      <div class="order-confirm" id="order-confirm">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>Tu solicitud fue preparada correctamente. Te llevaremos a WhatsApp para confirmarla con un asesor.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SERVICIOS
+     ===================================================================== -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Lo que hacemos</span>
+      <h2 class="section-title">Servicios pensados para tu tranquilidad</h2>
+      <p class="section-sub">Desde la recarga hasta la entrega, cada servicio está diseñado para ahorrarte tiempo y darte confianza.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 6.5 10 6.5 13.5a5.5 5.5 0 0 0 11 0C17.5 10 15 7 12 2z"/></svg></div>
+        <h3>Recarga de botellas</h3>
+        <p>Recarga tu botella personal de forma rápida, ideal para el día a día en casa u oficina.</p>
+        <span class="service-benefit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Ahorra tiempo en cada pedido</span>
+        <a href="#recarga" class="btn btn-outline btn-sm btn-block js-service-btn" data-recipiente="Botella personal" data-servicio="Solo recarga">Solicitarlo</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="4"/><path d="M9 4V2h6v2"/></svg></div>
+        <h3>Recarga de botellones</h3>
+        <p>Recargamos tu botellón pequeño o grande, listo para tu dispensador de casa u oficina.</p>
+        <span class="service-benefit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Servicio rápido y sin filas</span>
+        <a href="#recarga" class="btn btn-outline btn-sm btn-block js-service-btn" data-recipiente="Botellón grande" data-servicio="Solo recarga">Solicitarlo</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h2l2.4 12.6a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"/></svg></div>
+        <h3>Venta de recipientes</h3>
+        <p>Compra botellas y botellones nuevos si necesitas comenzar tu servicio de recarga.</p>
+        <span class="service-benefit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Diferentes tamaños disponibles</span>
+        <a href="#recarga" class="btn btn-outline btn-sm btn-block js-service-btn" data-recipiente="Botellón grande" data-servicio="Compra de botella o botellón">Solicitarlo</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-7h11l3 7"/><rect x="3" y="12" width="16" height="6" rx="1.5"/><circle cx="7.5" cy="20" r="1.6"/><circle cx="16.5" cy="20" r="1.6"/></svg></div>
+        <h3>Entrega a domicilio</h3>
+        <p>Llevamos tu pedido hasta la puerta de tu casa, oficina o comercio en la zona de cobertura.</p>
+        <span class="service-benefit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Sin desplazarte de tu lugar</span>
+        <a href="#recarga" class="btn btn-outline btn-sm btn-block js-service-btn" data-recipiente="Botellón grande" data-servicio="Recarga con domicilio">Solicitarlo</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+        <h3>Pedidos empresariales</h3>
+        <p>Suministro de agua para oficinas, comercios y empresas con volúmenes recurrentes.</p>
+        <span class="service-benefit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Atención dedicada para tu negocio</span>
+        <a href="#recarga" class="btn btn-outline btn-sm btn-block js-service-btn" data-recipiente="Servicio empresarial" data-servicio="Pedido empresarial">Solicitarlo</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Planes de suministro frecuente</h3>
+        <p>Programa tus recargas con la frecuencia que necesites, sin tener que pedirlas cada vez.</p>
+        <span class="service-benefit"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Nunca te quedas sin agua</span>
+        <a href="#recarga" class="btn btn-outline btn-sm btn-block js-service-btn" data-recipiente="Varias unidades" data-servicio="Plan recurrente">Solicitarlo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     CÓMO FUNCIONA
+     ===================================================================== -->
+<section class="how" id="como-funciona">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Proceso</span>
+      <h2 class="section-title">Cómo funciona</h2>
+      <p class="section-sub">Cuatro pasos simples entre tu pedido y el agua en tu puerta.</p>
+    </div>
+
+    <div class="how-steps">
+      <svg class="how-wave" viewBox="0 0 1000 40" preserveAspectRatio="none" width="100%" height="40">
+        <path d="M60 20 Q 190 0, 310 20 T 560 20 T 810 20 T 940 20"/>
+      </svg>
+
+      <div class="how-step">
+        <div class="how-step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Selecciona tu servicio</h3>
+        <p>Elige recarga, entrega a domicilio, compra o plan recurrente.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>Indica cantidad y dirección</h3>
+        <p>Cuéntanos cuánto necesitas y a dónde debemos llevarlo.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>Confirma tu pedido</h3>
+        <p>Un asesor confirma contigo los detalles por WhatsApp.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 7 6.5 10 6.5 13.5a5.5 5.5 0 0 0 11 0C17.5 10 15 7 12 2z"/></svg></div>
+        <h3>Recibe agua en tu domicilio</h3>
+        <p>Tu pedido llega a la dirección indicada dentro de la zona de cobertura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     BENEFICIOS
+     ===================================================================== -->
+<section class="benefits" id="beneficios">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Por qué elegirnos</span>
+      <h2 class="section-title">Beneficios de recargar con nosotros</h2>
+      <p class="section-sub">Un servicio pensado para simplificar tu día a día.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><h3>Ahorro de tiempo</h3><p>Pide en minutos, sin desplazarte ni hacer filas.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 10h8M8 14h5"/></svg></span><h3>Pedido en línea</h3><p>Completa tu solicitud desde el celular o el computador.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span><h3>Hogares y empresas</h3><p>Entregamos en casas, oficinas y comercios.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l2-7h11l3 7"/><rect x="3" y="12" width="16" height="6" rx="1.5"/><circle cx="7.5" cy="20" r="1.6"/><circle cx="16.5" cy="20" r="1.6"/></svg></span><h3>Atención rápida</h3><p>Respuesta ágil desde el momento en que escribes.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span><h3>Servicio confiable</h3><p>Un proceso claro, desde el pedido hasta la entrega.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="4" width="12" height="17" rx="4"/></svg></span><h3>Diferentes tamaños</h3><p>Botella personal, botellón pequeño o grande, según lo que necesites.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg></span><h3>Planes recurrentes</h3><p>Programa tus recargas y olvídate de quedarte sin agua.</p></div>
+      <div class="benefit-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M2.5 12h19M12 2.5c2.5 2.7 4 6 4 9.5s-1.5 6.8-4 9.5c-2.5-2.7-4-6-4-9.5S9.5 5.2 12 2.5z"/></svg></span><h3>Cobertura en Colombia</h3><p>Además de Bogotá, atendemos otras ciudades del país.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     DOMICILIOS / COBERTURA
+     ===================================================================== -->
+<section class="coverage" id="cobertura">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Cobertura</span>
+      <h2 class="section-title">Llevamos tu recarga hasta donde estés</h2>
+      <p class="section-sub">Atendemos Bogotá y ampliamos nuestra cobertura a otras ciudades de Colombia según la zona.</p>
+    </div>
+
+    <div class="coverage-wrap">
+      <div>
+        <div class="coverage-list">
+          <div class="coverage-row">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><h4>Atención en Bogotá</h4><p>Cobertura activa en distintas localidades de la ciudad.</p></div>
+          </div>
+          <div class="coverage-row">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2.5 12h19M12 2.5c2.5 2.7 4 6 4 9.5s-1.5 6.8-4 9.5c-2.5-2.7-4-6-4-9.5S9.5 5.2 12 2.5z"/></svg></span>
+            <div><h4>Entregas en zonas disponibles</h4><p>Ampliamos la cobertura de forma progresiva a nuevas zonas.</p></div>
+          </div>
+          <div class="coverage-row">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg></span>
+            <div><h4>Cobertura nacional sujeta a ubicación</h4><p>Atendemos otras ciudades de Colombia según disponibilidad.</p></div>
+          </div>
+          <div class="coverage-row">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg></span>
+            <div><h4>Servicio para hogares</h4><p>Recargas y domicilios pensados para el consumo familiar.</p></div>
+          </div>
+          <div class="coverage-row">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
+            <div><h4>Servicio para oficinas</h4><p>Suministro regular para equipos de trabajo.</p></div>
+          </div>
+          <div class="coverage-row">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h2l2.4 12.6a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"/></svg></span>
+            <div><h4>Servicio para comercios</h4><p>Apoyamos negocios que requieren agua de forma constante.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coverage-check">
+        <h3>Verifica la cobertura en tu ciudad</h3>
+        <p>Escribe tu ciudad y te ayudaremos a confirmar la disponibilidad del servicio.</p>
+        <form class="coverage-check-form" id="coverage-form">
+          <label for="coverage-city" class="visually-hidden">Escribe tu ciudad</label>
+          <input type="text" id="coverage-city" placeholder="Escribe tu ciudad" autocomplete="address-level2">
+          <button type="submit" class="btn btn-secondary btn-sm">Verificar</button>
+        </form>
+        <div class="coverage-result" id="coverage-result">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span id="coverage-result-text"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PLANES DE SERVICIO
+     ===================================================================== -->
+<section class="plans" id="planes">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Planes</span>
+      <h2 class="section-title">Elige el plan que se ajusta a ti</h2>
+      <p class="section-sub">Precios y frecuencias por confirmar según tu ciudad y consumo. Un asesor te ayuda a definir el plan ideal.</p>
+    </div>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <span class="plan-badge">Individual</span>
+        <h3>Recarga individual</h3>
+        <!-- ============ EDITA AQUÍ EL PRECIO ============ -->
+        <div class="plan-price">Precio por confirmar</div>
+        <div class="plan-freq">Pedido único, sin frecuencia fija</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>1 recarga por pedido</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Ideal para uso ocasional</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Sin compromiso de permanencia</li>
+        </ul>
+        <a href="#recarga" class="btn btn-outline btn-block js-service-btn" data-servicio="Solo recarga">Solicitar plan</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="plan-badge">Más elegido</span>
+        <h3>Plan hogar</h3>
+        <!-- ============ EDITA AQUÍ EL PRECIO Y LA FRECUENCIA ============ -->
+        <div class="plan-price">Precio por confirmar</div>
+        <div class="plan-freq">Frecuencia por confirmar (ej. quincenal o mensual)</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Número de recargas por definir</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Entrega programada a domicilio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Ideal para consumo familiar</li>
+        </ul>
+        <a href="#recarga" class="btn btn-light btn-block js-service-btn" data-servicio="Plan recurrente">Solicitar plan</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-badge">Empresas</span>
+        <h3>Plan empresa</h3>
+        <!-- ============ EDITA AQUÍ EL PRECIO Y LA FRECUENCIA ============ -->
+        <div class="plan-price">Precio por confirmar</div>
+        <div class="plan-freq">Frecuencia por confirmar según consumo</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Volúmenes por definir con tu asesor</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Atención dedicada para tu negocio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Facturación empresarial</li>
+        </ul>
+        <a href="#recarga" class="btn btn-outline btn-block js-service-btn" data-recipiente="Servicio empresarial" data-servicio="Pedido empresarial">Solicitar plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     TESTIMONIOS (contenido de ejemplo, reemplazar por reseñas reales)
+     ===================================================================== -->
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Testimonios</span>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <p class="section-sub">Espacio de ejemplo: reemplaza estos textos por testimonios reales de tus clientes.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">“</div>
+        <p class="quote">Agrega aquí el testimonio real de uno de tus clientes.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">•</div>
+          <div><strong>Nombre del cliente (editar)</strong><span>Cargo o ciudad (editar)</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">“</div>
+        <p class="quote">Agrega aquí el testimonio real de uno de tus clientes.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">•</div>
+          <div><strong>Nombre del cliente (editar)</strong><span>Cargo o ciudad (editar)</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">“</div>
+        <p class="quote">Agrega aquí el testimonio real de uno de tus clientes.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">•</div>
+          <div><strong>Nombre del cliente (editar)</strong><span>Cargo o ciudad (editar)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PREGUNTAS FRECUENTES
+     ===================================================================== -->
+<section class="faq" id="preguntas">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Ayuda</span>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <p class="section-sub">Resolvemos las dudas más comunes sobre nuestro servicio de recarga y domicilio.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo solicito una recarga? <span class="plus"></span></button>
+        <div class="faq-answer"><p>Puedes usar el formulario de recarga rápida en esta página, escribirnos por WhatsApp o llamarnos a la línea de atención.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Realizan entregas a domicilio? <span class="plus"></span></button>
+        <div class="faq-answer"><p>Sí, realizamos entregas a domicilio en Bogotá y en zonas de cobertura de otras ciudades, sujeto a verificación.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué tamaños de botellas recargan? <span class="plus"></span></button>
+        <div class="faq-answer"><p>Trabajamos con botella personal, botellón pequeño, botellón grande y pedidos de varias unidades o empresariales.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo programar entregas frecuentes? <span class="plus"></span></button>
+        <div class="faq-answer"><p>Sí, contamos con planes recurrentes para hogares y empresas. La frecuencia se define con tu asesor.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Atienden empresas? <span class="plus"></span></button>
+        <div class="faq-answer"><p>Sí, ofrecemos pedidos y planes empresariales con atención dedicada según el volumen que necesites.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo verifico la cobertura en mi ciudad? <span class="plus"></span></button>
+        <div class="faq-answer"><p>Usa el formulario de verificación de cobertura en esta página, indicando tu ciudad. Un asesor confirmará la disponibilidad.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuánto tarda el domicilio? <span class="plus"></span></button>
+        <div class="faq-answer"><p>El tiempo de entrega depende de la zona y la disponibilidad. Tu asesor te confirmará un estimado al momento del pedido.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué métodos de pago reciben? <span class="plus"></span></button>
+        <div class="faq-answer"><p><!-- EDITA AQUÍ LOS MÉTODOS DE PAGO DISPONIBLES -->Los métodos de pago disponibles se confirman con tu asesor al momento de coordinar la entrega.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     AYUDA Y CONTACTO
+     ===================================================================== -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contacto</span>
+      <h2 class="section-title">¿Necesitas ayuda?</h2>
+      <p class="section-sub">Escríbenos y con gusto resolvemos tus dudas sobre recargas, domicilios o planes.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <div class="contact-info-card">
+        <h3>Hablemos</h3>
+        <p>Nuestro equipo está disponible para ayudarte con tu pedido o resolver tus dudas.</p>
+
+        <div class="contact-line">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></span>
+          <!-- ============ EDITA AQUÍ EL NÚMERO DE TELÉFONO VISIBLE ============ -->
+          <div><strong>+57 3150978792</strong><span>Línea de atención</span></div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <!-- ============ EDITA AQUÍ EL CORREO ELECTRÓNICO ============ -->
+          <div><strong>contacto@aquacolombia.com</strong><span>Correo electrónico</span></div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><strong>Bogotá, Colombia</strong><span>Ciudad principal</span></div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6z"/></svg></span>
+          <!-- ============ EDITA AQUÍ EL HORARIO DE ATENCIÓN ============ -->
+          <div><strong>Lun - Sáb</strong><span>7:00 a.m. - 7:00 p.m. (editar horario)</span></div>
+        </div>
+
+        <a href="#" class="btn btn-light btn-block wa-link" target="_blank" rel="noopener" style="margin-top:24px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#005C97"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.83-.11a16.7 16.7 0 0 1-1.66-.62c-2.94-1.27-4.85-4.24-5-4.44-.15-.2-1.2-1.6-1.2-3.05s.76-2.17 1.03-2.47c.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.51.24.58.83 2 .9 2.15.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.32 2.36 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.65-.15.27.1 1.7.8 1.99.95.3.15.49.22.56.35.08.13.08.75-.16 1.43z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+
+      <form class="form-card" id="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="field" data-field="c-nombre">
+            <label for="c-nombre">Nombre completo <span class="req">*</span></label>
+            <input type="text" id="c-nombre" name="nombre" placeholder="Tu nombre">
+            <span class="field-error-msg">Por favor ingresa tu nombre.</span>
+          </div>
+          <div class="field" data-field="c-contacto">
+            <label for="c-contacto">Celular o correo <span class="req">*</span></label>
+            <input type="text" id="c-contacto" name="contacto" placeholder="300 000 0000 o tu correo">
+            <span class="field-error-msg">Ingresa un celular o correo válido.</span>
+          </div>
+          <div class="field full" data-field="c-mensaje">
+            <label for="c-mensaje">Mensaje <span class="req">*</span></label>
+            <textarea id="c-mensaje" name="mensaje" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+            <span class="field-error-msg">Cuéntanos brevemente en qué te ayudamos.</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Necesito ayuda</button>
+        <div class="order-confirm" id="contact-confirm">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          <span>Gracias por escribirnos. Te llevaremos a WhatsApp para continuar la conversación.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 8 5 11.5 5 15a7 7 0 0 0 14 0c0-3.5-3-7-7-13z"/></svg></span>
+          AquaPura Colombia
+        </a>
+        <p>Servicio de recarga y entrega de agua en Colombia, con pedidos en línea y atención personalizada.</p>
+        <p class="footer-tagline">Servicio de recarga y entrega de agua en Colombia</p>
+      </div>
+
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li>Recarga de botellas</li>
+          <li>Recarga de botellones</li>
+          <li>Entrega a domicilio</li>
+          <li>Pedidos empresariales</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Cobertura</h4>
+        <ul>
+          <li>Bogotá</li>
+          <li>Zonas disponibles</li>
+          <li>Cobertura nacional*</li>
+          <li>*Sujeta a verificación</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <!-- ============ ENLAZA AQUÍ TUS POLÍTICAS REALES ============ -->
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Tratamiento de datos</a></li>
+          <li><a href="#">Términos del servicio</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AquaPura Colombia. Todos los derechos reservados.</span>
+      <span>Bogotá · Cobertura en Colombia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================================
+     BOTÓN FLOTANTE DE WHATSAPP + VOLVER ARRIBA
+     ===================================================================== -->
+<div class="float-stack">
+  <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <a href="#" class="wa-float wa-link" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.83-.11a16.7 16.7 0 0 1-1.66-.62c-2.94-1.27-4.85-4.24-5-4.44-.15-.2-1.2-1.6-1.2-3.05s.76-2.17 1.03-2.47c.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.51.24.58.83 2 .9 2.15.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.32 2.36 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.65-.15.27.1 1.7.8 1.99.95.3.15.49.22.56.35.08.13.08.75-.16 1.43z"/></svg>
+    <span class="wa-text">Pedir agua</span>
+  </a>
+</div>
+
+<script>
+/* =========================================================================
+   CONFIGURACIÓN RÁPIDA
+   Cambia aquí tu número de WhatsApp (código de país + número, sin espacios
+   ni símbolos). Todos los botones de WhatsApp del sitio usan esta variable.
+   ========================================================================= */
+const WHATSAPP_NUMBER = "573150978792"; // <-- EDITA AQUÍ tu número de WhatsApp
+const WHATSAPP_MESSAGE_DEFAULT = "Hola, quiero solicitar una recarga de botella de agua y servicio a domicilio.";
+
+function buildWaLink(message){
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+function refreshWaLinks(message){
+  document.querySelectorAll(".wa-link").forEach(el => {
+    el.setAttribute("href", buildWaLink(message || WHATSAPP_MESSAGE_DEFAULT));
+  });
+}
+refreshWaLinks();
+
+/* Año dinámico en el footer */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ---------------------------------------------------------------------
+   Header: sombra al hacer scroll + menú móvil
+   --------------------------------------------------------------------- */
+const header = document.getElementById("site-header");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 10);
+});
+
+const menuToggle = document.getElementById("menu-toggle");
+const mainNav = document.getElementById("main-nav");
+menuToggle.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("open");
+  menuToggle.classList.toggle("active", isOpen);
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    menuToggle.classList.remove("active");
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+/* ---------------------------------------------------------------------
+   Barra de progreso de scroll
+   --------------------------------------------------------------------- */
+const progressBar = document.getElementById("scroll-progress-bar");
+function updateProgress(){
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = pct + "%";
+}
+window.addEventListener("scroll", updateProgress);
+updateProgress();
+
+/* ---------------------------------------------------------------------
+   Botón volver arriba
+   --------------------------------------------------------------------- */
+const backToTop = document.getElementById("back-to-top");
+window.addEventListener("scroll", () => {
+  backToTop.classList.toggle("show", window.scrollY > 500);
+});
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* ---------------------------------------------------------------------
+   Desplazamiento suave con offset por el header fijo
+   --------------------------------------------------------------------- */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", (e) => {
+    const id = link.getAttribute("href");
+    if(id.length < 2) return;
+    const target = document.querySelector(id);
+    if(!target) return;
+    e.preventDefault();
+    const offset = document.querySelector(".topbar").offsetHeight + header.offsetHeight + 20;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  });
+});
+
+/* ---------------------------------------------------------------------
+   FAQ acordeón
+   --------------------------------------------------------------------- */
+document.querySelectorAll(".faq-item").forEach(item => {
+  const question = item.querySelector(".faq-question");
+  const answer = item.querySelector(".faq-answer");
+  question.addEventListener("click", () => {
+    const isActive = item.classList.contains("active");
+    document.querySelectorAll(".faq-item").forEach(i => {
+      i.classList.remove("active");
+      i.querySelector(".faq-answer").style.maxHeight = null;
+    });
+    if(!isActive){
+      item.classList.add("active");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
+
+/* ---------------------------------------------------------------------
+   Revelado de elementos al hacer scroll
+   --------------------------------------------------------------------- */
+const revealTargets = document.querySelectorAll(".service-card, .benefit-item, .how-step, .plan-card, .testimonial-card, .reveal");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("in-view");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealTargets.forEach(el => observer.observe(el));
+
+/* ---------------------------------------------------------------------
+   Botones de servicios y planes: prellenan el formulario y llevan a él
+   --------------------------------------------------------------------- */
+document.querySelectorAll(".js-service-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const recipiente = btn.getAttribute("data-recipiente");
+    const servicio = btn.getAttribute("data-servicio");
+    if(recipiente){ document.getElementById("o-recipiente").value = recipiente; }
+    if(servicio){ document.getElementById("o-servicio").value = servicio; }
+  });
+});
+
+/* ---------------------------------------------------------------------
+   Utilidades de validación
+   --------------------------------------------------------------------- */
+function setFieldError(fieldEl, hasError){
+  fieldEl.classList.toggle("error", hasError);
+}
+function isValidPhone(value){
+  const digits = value.replace(/\D/g, "");
+  return digits.length >= 7;
+}
+
+/* ---------------------------------------------------------------------
+   Formulario de recarga rápida -> valida y envía a WhatsApp
+   --------------------------------------------------------------------- */
+const orderForm = document.getElementById("order-form");
+const orderConfirm = document.getElementById("order-confirm");
+
+orderForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  orderConfirm.classList.remove("show");
+
+  const nombre = document.getElementById("o-nombre");
+  const celular = document.getElementById("o-celular");
+  const ciudad = document.getElementById("o-ciudad");
+  const direccion = document.getElementById("o-direccion");
+  const recipiente = document.getElementById("o-recipiente");
+  const cantidad = document.getElementById("o-cantidad");
+  const servicio = document.getElementById("o-servicio");
+  const comentarios = document.getElementById("o-comentarios");
+
+  let valid = true;
+  const checks = [
+    [nombre, nombre.value.trim().length > 1],
+    [celular, isValidPhone(celular.value)],
+    [ciudad, ciudad.value.trim().length > 1],
+    [direccion, direccion.value.trim().length > 3],
+    [recipiente, recipiente.value !== ""],
+    [cantidad, cantidad.value !== "" && Number(cantidad.value) > 0],
+    [servicio, servicio.value !== ""]
+  ];
+
+  checks.forEach(([el, ok]) => {
+    const fieldWrap = el.closest(".field");
+    setFieldError(fieldWrap, !ok);
+    if(!ok) valid = false;
+  });
+
+  if(!valid){
+    const firstError = orderForm.querySelector(".field.error");
+    if(firstError) firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const mensaje =
+`Hola, quiero solicitar una recarga de agua:
+Nombre: ${nombre.value.trim()}
+Celular: ${celular.value.trim()}
+Ciudad: ${ciudad.value.trim()}
+Dirección: ${direccion.value.trim()}
+Tipo de recipiente: ${recipiente.value}
+Cantidad: ${cantidad.value}
+Tipo de servicio: ${servicio.value}
+Comentarios: ${comentarios.value.trim() || "Sin comentarios adicionales"}`;
+
+  orderConfirm.classList.add("show");
+  orderConfirm.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  window.open(buildWaLink(mensaje), "_blank");
+});
+
+/* Quita el estado de error apenas el usuario corrige el campo */
+orderForm.querySelectorAll("input, select, textarea").forEach(input => {
+  input.addEventListener("input", () => {
+    setFieldError(input.closest(".field"), false);
+  });
+});
+
+/* ---------------------------------------------------------------------
+   Verificación de cobertura por ciudad (mensaje no vinculante)
+   --------------------------------------------------------------------- */
+const coverageForm = document.getElementById("coverage-form");
+const coverageResult = document.getElementById("coverage-result");
+const coverageResultText = document.getElementById("coverage-result-text");
+
+coverageForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const cityInput = document.getElementById("coverage-city");
+  const city = cityInput.value.trim();
+
+  if(city.length < 2){
+    cityInput.focus();
+    coverageResultText.textContent = "Por favor escribe el nombre de tu ciudad para continuar.";
+    coverageResult.classList.add("show");
+    return;
+  }
+
+  coverageResultText.textContent =
+    `Recibimos tu ciudad: "${city}". Déjanos confirmar la disponibilidad del servicio en tu ubicación; un asesor te contactará para confirmarlo.`;
+  coverageResult.classList.add("show");
+});
+
+/* ---------------------------------------------------------------------
+   Formulario de contacto -> "Necesito ayuda"
+   --------------------------------------------------------------------- */
+const contactForm = document.getElementById("contact-form");
+const contactConfirm = document.getElementById("contact-confirm");
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  contactConfirm.classList.remove("show");
+
+  const nombre = document.getElementById("c-nombre");
+  const contactoInput = document.getElementById("c-contacto");
+  const mensaje = document.getElementById("c-mensaje");
+
+  let valid = true;
+  const checks = [
+    [nombre, nombre.value.trim().length > 1],
+    [contactoInput, contactoInput.value.trim().length > 3],
+    [mensaje, mensaje.value.trim().length > 3]
+  ];
+  checks.forEach(([el, ok]) => {
+    const fieldWrap = el.closest(".field");
+    setFieldError(fieldWrap, !ok);
+    if(!ok) valid = false;
+  });
+
+  if(!valid){
+    const firstError = contactForm.querySelector(".field.error");
+    if(firstError) firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const texto =
+`Hola, necesito ayuda:
+Nombre: ${nombre.value.trim()}
+Celular o correo: ${contactoInput.value.trim()}
+Mensaje: ${mensaje.value.trim()}`;
+
+  contactConfirm.classList.add("show");
+  window.open(buildWaLink(texto), "_blank");
+});
+
+contactForm.querySelectorAll("input, textarea").forEach(input => {
+  input.addEventListener("input", () => {
+    setFieldError(input.closest(".field"), false);
+  });
+});
+
+/* ---------------------------------------------------------------------
+   Fondo 3D del hero: gotas de agua cayendo con profundidad, parallax
+   con el cursor, ondas al tocar la parte inferior y partículas flotantes.
+   Respeta prefers-reduced-motion.
+   --------------------------------------------------------------------- */
+(function(){
+  const canvas = document.getElementById("water-canvas");
+  const ctx = canvas.getContext("2d");
+  const hero = canvas.closest(".hero");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let w, h;
+  let drops = [];
+  let particles = [];
+  let ripples = [];
+  let mouseX = 0, mouseY = 0; // -1 a 1
+
+  function resize(){
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+  }
+
+  function createDrops(){
+    const count = w < 720 ? 22 : 42;
+    drops = Array.from({length: count}, () => makeDrop(true));
+  }
+  function makeDrop(randomY){
+    const depth = 0.3 + Math.random() * 0.7; // 0.3 (lejos) a 1 (cerca)
+    return {
+      x: Math.random() * w,
+      y: randomY ? Math.random() * h : -20,
+      depth,
+      len: 10 + depth * 24,
+      speed: (1.2 + depth * 2.6),
+      sway: Math.random() * Math.PI * 2
+    };
+  }
+  function createParticles(){
+    const count = w < 720 ? 16 : 30;
+    particles = Array.from({length: count}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: 1 + Math.random() * 2.2,
+      speed: 0.15 + Math.random() * 0.3,
+      drift: (Math.random() - 0.5) * 0.3,
+      alpha: 0.1 + Math.random() * 0.2
+    }));
+  }
+
+  function addRipple(x, y, depth){
+    ripples.push({ x, y, radius: 2, alpha: 0.5 * depth, depth });
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+
+    // Partículas flotantes ambientales
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+      ctx.fill();
+      p.y -= p.speed;
+      p.x += p.drift;
+      if(p.y < -10){ p.y = h + 10; p.x = Math.random() * w; }
+    });
+
+    // Gotas cayendo, con parallax según profundidad
+    drops.forEach(d => {
+      const parallaxX = mouseX * 18 * d.depth;
+      const parallaxY = mouseY * 10 * d.depth;
+      const drawX = d.x + parallaxX + Math.sin(d.y * 0.02 + d.sway) * 4 * (1 - d.depth);
+      const drawY = d.y + parallaxY;
+
+      const blurAmt = (1 - d.depth) * 1.6;
+      ctx.save();
+      ctx.filter = blurAmt > 0.15 ? `blur(${blurAmt}px)` : "none";
+      const grad = ctx.createLinearGradient(drawX, drawY, drawX, drawY + d.len);
+      grad.addColorStop(0, `rgba(255,255,255,0)`);
+      grad.addColorStop(0.5, `rgba(255,255,255,${0.35 * d.depth})`);
+      grad.addColorStop(1, `rgba(109,213,250,${0.55 * d.depth})`);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.2 + d.depth * 1.6;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(drawX, drawY);
+      ctx.lineTo(drawX, drawY + d.len);
+      ctx.stroke();
+      ctx.restore();
+
+      d.y += d.speed;
+      if(d.y > h){
+        addRipple(d.x, h - 6, d.depth);
+        Object.assign(d, makeDrop(false));
+      }
+    });
+
+    // Ondas al tocar la parte inferior
+    ripples.forEach(r => {
+      ctx.beginPath();
+      ctx.ellipse(r.x + mouseX * 18 * r.depth, r.y, r.radius * 2.2, r.radius * 0.6, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(39,215,209,${r.alpha})`;
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+      r.radius += 0.9;
+      r.alpha -= 0.014;
+    });
+    ripples = ripples.filter(r => r.alpha > 0);
+
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+
+  function drawStatic(){
+    // Estado reducido: escena fija sin animación, respetando accesibilidad
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+      ctx.fill();
+    });
+    drops.forEach(d => {
+      ctx.beginPath();
+      ctx.strokeStyle = `rgba(109,213,250,${0.35 * d.depth})`;
+      ctx.lineWidth = 1.2 + d.depth * 1.6;
+      ctx.lineCap = "round";
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x, d.y + d.len);
+      ctx.stroke();
+    });
+  }
+
+  hero.addEventListener("mousemove", (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+  });
+  hero.addEventListener("mouseleave", () => { mouseX = 0; mouseY = 0; });
+
+  window.addEventListener("resize", () => {
+    resize(); createDrops(); createParticles();
+    if(reduceMotion) drawStatic();
+  });
+
+  resize();
+  createDrops();
+  createParticles();
+
+  if(reduceMotion){
+    drawStatic();
+  } else {
+    draw();
+  }
+})();
+</script>
+</body>
+</html>
